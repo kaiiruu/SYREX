@@ -209,7 +209,7 @@ nav {
   gap: 8px;
 }
 .btn-ghost:hover { color: var(--white); }
-.btn-ghost::after { content: '↓'; font-size: 16px; }
+.btn-ghost::after { content: '↓'; font-size: 16px; font-family: 'DM Sans', Arial, sans-serif; font-variant-emoji: text; }
 
 /* ─── LIVE WIDGET ─── */
 .hero-widget {
@@ -756,6 +756,13 @@ footer {
 
 
 @media (max-width: 768px) {
+  /* restore normal cursor on touch devices */
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+  .music-btn { cursor: pointer; }
+  /* force arrow to text glyph on mobile (prevents emoji rendering) */
+  .btn-ghost::after { font-family: Arial, sans-serif; }
+
   nav { padding: 18px 24px; }
   .nav-links { display: none; }
   .hero { padding: 100px 24px 60px; }
