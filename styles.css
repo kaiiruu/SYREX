@@ -391,6 +391,8 @@ nav {
   font-size: 22px;
   color: var(--muted);
   transition: transform 0.2s, color 0.2s;
+  font-family: Arial, sans-serif;
+  font-variant-emoji: text;
 }
 .card-tag {
   font-size: 11px;
@@ -639,6 +641,8 @@ footer {
   width: 14px;
   text-align: center;
   display: inline-block;
+  font-family: Arial, sans-serif;
+  font-variant-emoji: text;
 }
 .music-label { color: var(--muted); }
 
