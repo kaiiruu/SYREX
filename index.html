@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SYREX — Community Server</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Screen Effects -->
+  <canvas id="fxCanvas"></canvas>
+  <canvas id="lightningCanvas"></canvas>
+  <div class="scanlines"></div>
+  <div class="vignette"></div>
+  <div class="edge-glow"></div>
+  <div class="glitch-bar" id="glitchBar"></div>
+  <!-- Light Leaks -->
+  <div class="light-leak light-leak--tl"></div>
+  <div class="light-leak light-leak--br"></div>
+  <div class="light-leak light-leak--mid"></div>
+  <div class="chromatic-overlay"></div>
+
+  <!-- Music Player -->
+  <div class="music-player" id="musicPlayer">
+    <audio id="bgMusic" loop>
+      <source src="bg.mp3" type="audio/mpeg">
+    </audio>
+    <button class="music-btn" id="musicBtn" title="Toggle Music">
+      <span class="music-icon" id="musicIcon">▶</span>
+      <span class="music-label">BGM</span>
+      <div class="music-bars" id="musicBars">
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </button>
+  </div>
+
+  <!-- ─── NAV ─── -->
+  <nav>
+    <a href="#" class="nav-logo">SY<span>ℜ</span>EX</a>
+    <ul class="nav-links">
+      <li><a href="#roster">Games</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="https://discord.gg/SSVam3Cv7f" class="nav-cta">Join Server</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero" id="home">
+    <p class="hero-eyebrow">Syrex Community Server</p>
+    <h1 class="hero-title">
+      PLAY CHILL<br>
+      <span class="outline">&amp; VIBE</span>
+    </h1>
+    <p class="hero-sub">A warm, welcoming space for gamers of all kinds. Whether you're here to grind ranked or just hang out — you belong here. 🎮</p>
+    <div class="hero-actions">
+      <a href="https://discord.gg/SSVam3Cv7f" class="btn-primary">Join on Discord</a>
+      <a href="#roster" class="btn-ghost">View Games</a>
+    </div>
+
+    <div class="hero-widget">
+      <p class="widget-label"><span class="live-dot"></span>Live Status</p>
+      <div class="widget-stat"><span>600</span>+</div>
+      <p class="widget-desc">Members &amp; Growing</p>
+    </div>
+  </section>
+
+  <!-- ─── STATS BAR ─── -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num"><span>600</span>+</div>
+      <div class="stat-label">Total Members</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num"><span>4</span> Games</div>
+      <div class="stat-label">Active Communities</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Always Active</div>
+    </div>
+  </div>
+
+  <!-- ─── MARQUEE ─── -->
+  <div class="marquee-wrap">
+    <div class="marquee-inner">
+      <span class="marquee-item">JOIN THE COMMUNITY</span>
+      <span class="marquee-item dot">◆</span>
+      <span class="marquee-item">PLAY &amp; CHILL</span>
+      <span class="marquee-item dot">◆</span>
+      <span class="marquee-item">VALORANT · ML · CODM · MINECRAFT</span>
+      <span class="marquee-item dot">◆</span>
+      <span class="marquee-item">DISCORD.GG/SYREX</span>
+      <span class="marquee-item dot">◆</span>
+      <span class="marquee-item">JOIN THE COMMUNITY</span>
+      <span class="marquee-item dot">◆</span>
+      <span class="marquee-item">PLAY &amp; CHILL</span>
+      <span class="marquee-item dot">◆</span>
+      <span class="marquee-item">VALORANT · ML · CODM · MINECRAFT</span>
+      <span class="marquee-item dot">◆</span>
+      <span class="marquee-item">DISCORD.GG/SYREX</span>
+      <span class="marquee-item dot">◆</span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee-item">JOIN THE COMMUNITY</span>
+      <span class="marquee-item dot">◆</span>
+      <span class="marquee-item">PLAY &amp; CHILL</span>
+      <span class="marquee-item dot">◆</span>
+      <span class="marquee-item">VALORANT · ML · CODM · MINECRAFT</span>
+      <span class="marquee-item dot">◆</span>
+      <span class="marquee-item">DISCORD.GG/SYREX</span>
+      <span class="marquee-item dot">◆</span>
+      <span class="marquee-item">JOIN THE COMMUNITY</span>
+      <span class="marquee-item dot">◆</span>
+      <span class="marquee-item">PLAY &amp; CHILL</span>
+      <span class="marquee-item dot">◆</span>
+      <span class="marquee-item">VALORANT · ML · CODM · MINECRAFT</span>
+      <span class="marquee-item dot">◆</span>
+      <span class="marquee-item">DISCORD.GG/SYREX</span>
+      <span class="marquee-item dot">◆</span>
+    </div>
+  </div>
+
+  <!-- ─── ROSTER ─── -->
+  <section class="section" id="roster">
+    <p class="section-eyebrow reveal">Our Games</p>
+    <h2 class="section-title reveal">PICK YOUR<br/><em>GAME</em></h2>
+    <p class="reveal" style="margin-top:20px;font-size:15px;color:var(--muted);max-width:480px;font-weight:300;line-height:1.6">
+      From competitive ranked to casual fun — we've got dedicated channels and squads for all your favorite games. Find your people! 👾
+    </p>
+
+    <div class="roster-grid reveal">
+      <a href="https://discord.gg/SSVam3Cv7f" class="roster-card">
+        <div>
+          <div class="card-num">01</div>
+          <div class="card-name">VALORANT</div>
+          <div class="card-tag">Tactical FPS</div>
+        </div>
+        <div class="card-arrow">↗</div>
+      </a>
+      <a href="https://discord.gg/SSVam3Cv7f" class="roster-card">
+        <div>
+          <div class="card-num">02</div>
+          <div class="card-name">Mobile Legends</div>
+          <div class="card-tag">MOBA</div>
+        </div>
+        <div class="card-arrow">↗</div>
+      </a>
+      <a href="https://discord.gg/SSVam3Cv7f" class="roster-card">
+        <div>
+          <div class="card-num">03</div>
+          <div class="card-name">CODM</div>
+          <div class="card-tag">Battle Royale &amp; MP</div>
+        </div>
+        <div class="card-arrow">↗</div>
+      </a>
+      <a href="https://discord.gg/SSVam3Cv7f" class="roster-card">
+        <div>
+          <div class="card-num">04</div>
+          <div class="card-name">Minecraft</div>
+          <div class="card-tag">Survival &amp; Creative</div>
+        </div>
+        <div class="card-arrow">↗</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─── -->
+  <section class="section" id="about" style="background: var(--black-2)">
+    <p class="section-eyebrow reveal">Why Syrex</p>
+    <h2 class="section-title reveal">Built on <em>friendship.</em><br/>Driven by fun.</h2>
+
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <div class="about-card-num">01</div>
+        <div class="about-icon">◈</div>
+        <h3>Friendly Vibes Only</h3>
+        <p>No toxicity, no gatekeeping. Whether you're a casual player or a competitive grinder, everyone's welcome here. Good energy always. 😊</p>
+      </div>
+      <div class="about-card reveal">
+        <div class="about-card-num">02</div>
+        <div class="about-icon">◈</div>
+        <h3>Multi-Game Community</h3>
+        <p>Valorant, Mobile Legends, CODM, Minecraft — we've got a squad for every game. Find teammates, share clips, and level up together.</p>
+      </div>
+      <div class="about-card reveal">
+        <div class="about-card-num">03</div>
+        <div class="about-icon">◈</div>
+        <h3>Always Something Going On</h3>
+        <p>Game nights, events, giveaways, and just great convos 24/7. This server never sleeps — and neither do the good times. 🎉</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="cta-section">
+    <p class="section-eyebrow reveal" style="justify-content:center">Come hang out! 👋</p>
+    <h2 class="section-title reveal">LET'S PLAY <em>TOGETHER</em></h2>
+    <p class="cta-sub reveal">Jump in, say hi, and find your squad. Everyone's welcome in Syrex — no tryouts needed. 🎮</p>
+    <div class="cta-action reveal">
+      <a href="https://discord.gg/SSVam3Cv7f" class="btn-primary">Enter Syrex</a>
+      <span class="cta-sep">·</span>
+      <span class="cta-link">discord.gg/syrex</span>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-logo">SY<span>ℜ</span>EX</div>
+    <div class="footer-right">
+      Syrex Friendly Server &nbsp;·&nbsp;
+      <a href="https://discord.gg/SSVam3Cv7f">discord.gg/syrex</a> &nbsp;·&nbsp;
+      © 2025 Syrex
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
