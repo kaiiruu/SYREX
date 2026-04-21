@@ -2,31 +2,35 @@
    SYREX — main.js
 ───────────────────────────────────────── */
 
-// ─── CUSTOM CURSOR ───
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursorRing');
+// ─── CUSTOM CURSOR (desktop only) ───
+const isTouchDevice = () => window.matchMedia('(hover: none) and (pointer: coarse)').matches;
 
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top  = e.clientY + 'px';
-  ring.style.left   = e.clientX + 'px';
-  ring.style.top    = e.clientY + 'px';
-});
+if (!isTouchDevice()) {
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
 
-document.querySelectorAll('a, button').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.style.width  = '20px';
-    cursor.style.height = '20px';
-    ring.style.width    = '52px';
-    ring.style.height   = '52px';
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top  = e.clientY + 'px';
+    ring.style.left   = e.clientX + 'px';
+    ring.style.top    = e.clientY + 'px';
   });
-  el.addEventListener('mouseleave', () => {
-    cursor.style.width  = '12px';
-    cursor.style.height = '12px';
-    ring.style.width    = '36px';
-    ring.style.height   = '36px';
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width  = '20px';
+      cursor.style.height = '20px';
+      ring.style.width    = '52px';
+      ring.style.height   = '52px';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width  = '12px';
+      cursor.style.height = '12px';
+      ring.style.width    = '36px';
+      ring.style.height   = '36px';
+    });
   });
-});
+}
 
 // ─── SCROLL REVEAL ───
 const reveals = document.querySelectorAll('.reveal');
