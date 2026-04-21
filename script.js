@@ -398,12 +398,12 @@ if (statsBar) {
   btn.addEventListener('click', () => {
     if (playing) {
       audio.pause();
-      icon.textContent = '▶';
+      icon.textContent = '▶\uFE0E';
       bars.classList.remove('active');
       btn.classList.remove('playing');
     } else {
       audio.play().catch(() => {});
-      icon.textContent = '■';
+      icon.textContent = '■\uFE0E';
       bars.classList.add('active');
       btn.classList.add('playing');
     }
@@ -411,7 +411,7 @@ if (statsBar) {
   });
 
   audio.addEventListener('ended', () => {
-    icon.textContent = '▶';
+    icon.textContent = '▶\uFE0E';
     bars.classList.remove('active');
     btn.classList.remove('playing');
     playing = false;
